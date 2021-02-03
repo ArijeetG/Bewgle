@@ -1,0 +1,14 @@
+The endpoints made for this application:
+>   /process? : 
+            ~   Supports GET, POST, PUSH, DELETE methods.
+            ~   optional query paramater is /process?duration=<Some duration in ms>, The response is sent after the specified duration.
+>   /stats? :
+            ~   Supports GET method.
+            ~   query parameters supported are:
+                 fromDate=<Date in YYYY-MM-DD>, toDate=<Date in YYYY-MM-DD>,(if fromDate and toDate is not specified)hours=<number of hrs.> or minutes=<number of minutes>  
+Assumptions Made:
+> in /process? endpoint the user needs to pass the delay in response as duration=<some no. in ms> in in url query.
+> in /stats? endpoint the user can either pass the fromDate and startDate or instead can pass either hours or minutes as request query.
+    >   If fromDate is not passed it will check for either of hours or minutes value. If not found the default fromDate would be 1970-01-01 or the EPOCH start date.
+    >   Both minutes and hours cannot be passed at the same time.
+    >   If toDate is not passed, the query will set toDate as to the current ISO date and perform the aggregration.    
